@@ -1,0 +1,29 @@
+﻿<Window x:Class="Evaluation2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Evaluation2"
+        mc:Ignorable="d"
+        Title="Accueil" Height="Auto" Width="300">
+    <StackPanel Orientation="Vertical" Margin="10, 20, 10, 20">
+        <!-- Compte existant -->
+        <Label Foreground="Gray" Content="Compte Existant"/>
+        <StackPanel HorizontalAlignment="Center">
+            <Label Content="Numéro de compte"/>
+            <TextBox x:Name="txtNumero"/>
+            <Button Content="Rechercher"/>
+        </StackPanel>
+
+        <Label Content="________________________________________" 
+               HorizontalAlignment="Center" Foreground="Gray" Opacity="0.2"/>
+
+        <!-- Nouveau compte -->
+        <Label Foreground="Gray" Content="Nouveau compte"/>
+        <StackPanel HorizontalAlignment="Center">
+            <Label Content="Solde du compte"/>
+            <TextBox x:Name="txtSolde"/>
+            <Button Content="Créer"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

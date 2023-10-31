@@ -10,6 +10,8 @@ namespace Evaluation2.DAO
     public interface ICompteDao
     {
         Compte GetCompte(string numero);
+        bool AjouterCompte(Compte compte);
         Tuple<string, float> GetNumeroAndSolde(string numero);
+        string GetInformationComptes();
     }
 }

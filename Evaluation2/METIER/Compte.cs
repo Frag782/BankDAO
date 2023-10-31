@@ -43,7 +43,7 @@ namespace Evaluation2.METIER
         public override string ToString()
         {
             return String.Format(
-                "Numéro : {0} Solde : {1} Date de création {2}",
+                "Numéro : {0} \nSolde : {1}$ \nDate de création : {2}",
                 Numero, Solde, DateCreation);
         }
         #endregion

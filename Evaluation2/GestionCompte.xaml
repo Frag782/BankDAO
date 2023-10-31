@@ -12,7 +12,7 @@
         <StackPanel HorizontalAlignment="Center">
             <Label Content="Numéro de compte"/>
             <TextBox x:Name="txtNumero"/>
-            <Button Content="Rechercher"/>
+            <Button x:Name="btnRechercher" Content="Rechercher" Click="btnRechercher_Click"/>
         </StackPanel>
 
         <Label Content="________________________________________" 
@@ -20,10 +20,20 @@
 
         <!-- Nouveau compte -->
         <Label Foreground="Gray" Content="Nouveau compte"/>
-        <StackPanel HorizontalAlignment="Center">
-            <Label Content="Solde du compte"/>
-            <TextBox x:Name="txtSolde"/>
-            <Button Content="Créer"/>
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Margin="0, 0, 5, 0">
+                <Label Content="Numéro de compte"/>
+                <TextBox x:Name="txtNumero2"/>
+            </StackPanel>
+            
+            <StackPanel Margin="5, 0, 0, 0">
+                <Label Content="Solde du compte"/>
+                <TextBox x:Name="txtSolde"/>
+            </StackPanel>
         </StackPanel>
+        
+        <Button x:Name="btnCreer" Content="Créer" Click="btnCreer_Click" 
+                HorizontalAlignment="Center" Margin="0, 10, 0, 0"/>
     </StackPanel>
 </Window>

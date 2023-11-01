@@ -32,14 +32,21 @@ namespace Evaluation2
             Dao = new CompteDao();
         }
         #endregion
-
+        #region buttons
         private void btnRechercher_Click(object sender, RoutedEventArgs e)
         {
             if (txtNumero.Text == "") return;
+
             Compte compte = Dao.GetCompte(txtNumero.Text);
 
-            MessageBox.Show(compte != null ? compte.ToString() : "Compte introuvable.");
-            txtNumero.Clear();
+            if (compte == null) {
+                MessageBox.Show("Compte introuvable.");
+                ClearTextBoxes();
+                return;
+            }
+
+            new Details(compte).Show();
+            this.Close();
         }
 
         private void btnCreer_Click(object sender, RoutedEventArgs e)
@@ -61,7 +68,7 @@ namespace Evaluation2
             MessageBox.Show(succes ? $"Compte # {txtNumero2.Text} ajouté." : "Ce numéro de compte existe déjà.");
             ClearTextBoxes();
         }
-
+        #endregion
         private void ClearTextBoxes() {
             foreach (var box in new TextBox[] { txtNumero, txtNumero2, txtSolde}) box.Clear();
         }

@@ -52,6 +52,16 @@ namespace Evaluation2.DAO
             Comptes.Add(compte);
             return true;
         }
+
+        public void ModifierCompte(Compte compte, float solde)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool SupprimerCompte(Compte compte)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
     }
 }

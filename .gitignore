@@ -1,0 +1,5 @@
+# Dossier VS
+.vs/*
+
+# Solution VS
+*.sln

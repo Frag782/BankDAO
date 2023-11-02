@@ -12,11 +12,11 @@ namespace Evaluation2.DAO
         #region CRUD
         Compte GetCompte(string numero);
         bool AjouterCompte(Compte compte);
-        void ModifierCompte(Compte compte, float solde);
-        bool SupprimerCompte(Compte compte);
+        bool ModifierSolde(Compte compte, float solde);
+        bool SupprimerCompte(string numero);
         #endregion
 
-        Tuple<string, float> GetNumeroAndSolde(string numero);
         string GetInformationComptes();
+        Tuple<string, float> GetNumeroAndSolde(string numero);
     }
 }

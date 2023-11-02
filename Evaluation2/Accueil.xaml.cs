@@ -1,5 +1,6 @@
 ﻿using Evaluation2.DAO;
 using Evaluation2.METIER;
+using Evaluation2.UTILEMETIER;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace Evaluation2
         public MainWindow()
         {
             InitializeComponent();
-            Dao = new CompteDao();
+            Dao = (Application.Current as App).Dao;
         }
         #endregion
         #region buttons
@@ -45,8 +46,7 @@ namespace Evaluation2
                 return;
             }
 
-            new Details(compte).Show();
-            this.Close();
+            new Details(compte).ShowDialog();
         }
 
         private void btnCreer_Click(object sender, RoutedEventArgs e)

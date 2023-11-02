@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Evaluation2.DAO;
+using Evaluation2.UTILEMETIER;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +15,11 @@ namespace Evaluation2
     /// </summary>
     public partial class App : Application
     {
+        public ICompteDao Dao { get; set; }
+        public App()
+        {
+            Utils.CreateDatabaseWithSample();
+            Dao = new CompteDaoBd();
+        }
     }
 }

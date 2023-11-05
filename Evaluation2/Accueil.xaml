@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Evaluation2"
         mc:Ignorable="d"
-        Title="Accueil" Height="Auto" Width="300">
+        Title="Accueil" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
     
-    <StackPanel Orientation="Vertical" Margin="10, 20, 10, 20">
+    <StackPanel Margin="10, 20, 10, 20">
         <!-- Compte existant -->
         <Label Foreground="Gray" Content="Compte Existant"/>
         <StackPanel HorizontalAlignment="Center">
             <Label Content="Numéro de compte"/>
             <TextBox x:Name="txtNumero"/>
-            <Button x:Name="btnRechercher" Content="Rechercher" Click="btnRechercher_Click"/>
+            <Button x:Name="btnRechercher" Content="Rechercher" Margin="0,10, 0, 0" Click="btnRechercher_Click"/>
         </StackPanel>
 
         <Label Content="________________________________________" 
@@ -35,7 +35,7 @@
         </StackPanel>
         
         <Button x:Name="btnCreer" Content="Créer" Click="btnCreer_Click" 
-                HorizontalAlignment="Center" Margin="0, 10, 0, 0"/>
+                HorizontalAlignment="Center" MinWidth="100" Margin="0, 10, 0, 0"/>
 
     </StackPanel>
 </Window>

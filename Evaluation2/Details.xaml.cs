@@ -31,16 +31,17 @@ namespace Evaluation2
             InitializeComponent();
             Dao = (Application.Current as App).Dao;
             CompteDetails = compte;
-            AjouterDetails();
+            AfficherDetailsCompte();
         }
         #endregion
 
-        public void AjouterDetails() {
+        public void AfficherDetailsCompte() {
             lblNumero.Content = CompteDetails.Numero;
             lblCreation.Content = CompteDetails.DateCreation;
-            txtSolde.Text = CompteDetails.Solde.ToString();
+            lblSolde.Content = CompteDetails.Solde.ToString() + "$";
         }
 
+        #region buttons
         private void btnSupprimer_Click(object sender, RoutedEventArgs e)
         {
             var result = MessageBox.Show(
@@ -54,16 +55,40 @@ namespace Evaluation2
             this.Close();
         }
 
-        private void btnModifier_Click(object sender, RoutedEventArgs e)
+        private void btnDeposer_Click(object sender, RoutedEventArgs e)
         {
-            if (!float.TryParse(txtSolde.Text, out float solde) || (solde < 0)) {
-                MessageBox.Show("Montant du solde invalide.");
-                txtSolde.Text = CompteDetails.Solde.ToString();
+            if (!float.TryParse(txtMontantDepot.Text, out float montant) || (montant <= 0)) 
+            {
+                MessageBox.Show("Montant de dépôt invalide.");
+                ClearTextBoxes();
                 return;
             }
 
-            MessageBox.Show(Dao.ModifierSolde(CompteDetails, solde) ? "Solde du compte modifié." : "Échec de la modification.");
-            txtSolde.Text = CompteDetails.Solde.ToString();
+            float solde = CompteDetails.Solde + montant;
+            Dao.ModifierSolde(CompteDetails, solde);
+            AfficherDetailsCompte();
+            ClearTextBoxes();
+        }
+
+        private void btnRetirer_Click(object sender, RoutedEventArgs e)
+        {
+            if (!float.TryParse(txtMontantRetrait.Text, out float montant) || (CompteDetails.Solde - montant < 0)) 
+            {
+                MessageBox.Show("Montant de retrait invalide.");
+                ClearTextBoxes();
+                return;
+            }
+
+            float solde = CompteDetails.Solde - montant;
+            Dao.ModifierSolde(CompteDetails, solde);
+            AfficherDetailsCompte();
+            ClearTextBoxes();
+        }
+        #endregion
+
+        private void ClearTextBoxes()
+        {
+            foreach (var box in new TextBox[] { txtMontantDepot, txtMontantRetrait }) box.Clear();
         }
     }
 }

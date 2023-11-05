@@ -13,7 +13,6 @@ namespace Evaluation2.EF
         protected override void Seed(EfContext context)
         {
             foreach (var compte in Utils.GetComptes()) context.Comptes.Add(compte);
-            //base.Seed(context);
             context.SaveChanges();
         }
     }
